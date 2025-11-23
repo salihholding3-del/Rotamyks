@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RotamYKS - YKS Koçluk Sistemi</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f9fa; }
-    header { background:#007bff; color:white; padding:20px; text-align:center; }
-    nav { background:#0056b3; display:flex; justify-content:center; flex-wrap:wrap; }
-    nav a { color:white; text-decoration:none; padding:15px 20px; display:block; }
-    nav a:hover { background:#00408a; }
-    section { padding:40px 20px; max-width:900px; margin:auto; }
-    h1,h2 { text-align:center; }
-    .btn { background:#007bff; color:white; padding:10px 20px; text-decoration:none; border-radius:5px; display:inline-block; margin-top:10px; }
-    .btn:hover { background:#0056b3; }
-    footer { background:#343a40; color:white; text-align:center; padding:20px; margin-top:40px; }
-    .card { background:white; padding:20px; margin:20px 0; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RotamYKS - YKS Koçluk Sistemi</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f0f2f5; }
+  header {
+    background: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    color:white; text-align:center; padding:100px 20px;
+  }
+  header h1 { font-size:3em; margin:0; }
+  header p { font-size:1.2em; margin-top:10px; }
+
+  nav { background:#007bff; display:flex; justify-content:center; flex-wrap:wrap; }
+  nav a { color:white; text-decoration:none; padding:15px 20px; display:block; transition:0.3s; }
+  nav a:hover { background:#0056b3; }
+
+  section { padding:60px 20px; max-width:1000px; margin:auto; }
+  h2 { text-align:center; margin-bottom:40px; }
+
+  .card-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+  .card { background:white; padding:20px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); flex:1 1 250px; transition:0.3s; }
+  .card:hover { transform: translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+
+  .btn { background:#007bff; color:white; padding:10px 20px; text-decoration:none; border-radius:5px; display:inline-block; margin-top:10px; transition:0.3s; }
+  .btn:hover { background:#0056b3; }
+
+  footer { background:#343a40; color:white; text-align:center; padding:20px; margin-top:40px; }
+
+  /* Slider için */
+  .slider { position:relative; max-width:800px; margin:auto; overflow:hidden; border-radius:10px; }
+  .slides { display:flex; transition:0.5s; }
+  .slide { min-width:100%; padding:40px; box-sizing:border-box; background:#fff; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+</style>
 </head>
 <body>
 
@@ -34,29 +52,36 @@
 </nav>
 
 <section id="anasayfa">
-  <h2>YKS Sürecinde Yanındayız</h2>
-  <p>RotamYKS, YKS yolculuğunda öğrencilere rehberlik eden, başarıya giden yolda her adımda yanlarında yer alacak kapsamlı bir koçluk sistemi sunar. Sitemizde, öğrencilerin hedeflerine ulaşmalarına yardımcı olacak ücretsiz ders notları ve kaynaklar bulabilirsin. Ayrıca, motivasyonlarını artıracak yazılı motivasyon konuşmalarımızla da sana destek oluyoruz.</p>
+  <h2>Ana Sayfa</h2>
+  <p style="text-align:center; max-width:800px; margin:auto;">RotamYKS, YKS yolculuğunda öğrencilere rehberlik eden, başarıya giden yolda her adımda yanlarında yer alacak kapsamlı bir koçluk sistemi sunar. Ücretsiz ders notları ve motivasyon içerikleri ile senin yanında!</p>
 </section>
 
 <section id="dersnotlari">
   <h2>Ücretsiz Ders Notları</h2>
-  <div class="card">
-    <h3>TYT Ders Notları</h3>
-    <p>Matematik, Türkçe, Fen ve Sosyal derslerine ait özet notlar.</p>
-  </div>
-  <div class="card">
-    <h3>AYT Ders Notları</h3>
-    <p>Matematik, Fizik, Kimya, Biyoloji ve Edebiyat özetleri.</p>
+  <div class="card-container">
+    <div class="card">
+      <h3>TYT Matematik</h3>
+      <p>Özet notlar ve örnek sorular. <a href="#" class="btn">PDF İndir</a></p>
+    </div>
+    <div class="card">
+      <h3>AYT Fizik</h3>
+      <p>Kapsamlı konu özetleri. <a href="#" class="btn">PDF İndir</a></p>
+    </div>
+    <div class="card">
+      <h3>AYT Edebiyat</h3>
+      <p>Konu özetleri ve örnek sorular. <a href="#" class="btn">PDF İndir</a></p>
+    </div>
   </div>
 </section>
 
 <section id="motivasyon">
   <h2>Motivasyon Yazıları</h2>
-  <div class="card">
-    <p>"Başarı, her gün küçük adımlar atmaktır. RotamYKS yanındadır!"</p>
-  </div>
-  <div class="card">
-    <p>"Hayallerine giden yol sabır ve azimle döşenmiştir. Biz bu yolda seninle birlikteyiz."</p>
+  <div class="slider">
+    <div class="slides">
+      <div class="slide">"Başarı, her gün küçük adımlar atmaktır. RotamYKS yanındadır!"</div>
+      <div class="slide">"Hayallerine giden yol sabır ve azimle döşenmiştir. Biz bu yolda seninle birlikteyiz."</div>
+      <div class="slide">"Her yeni gün bir fırsattır. RotamYKS ile her adımda güçlüsün!"</div>
+    </div>
   </div>
 </section>
 
@@ -75,6 +100,18 @@
 <footer>
   <p>© 2025 RotamYKS. Tüm hakları saklıdır.</p>
 </footer>
+
+<script>
+  // Slider otomatik geçiş
+  let slides = document.querySelector('.slides');
+  let totalSlides = document.querySelectorAll('.slide').length;
+  let index = 0;
+  setInterval(() => {
+    index++;
+    if(index >= totalSlides) index = 0;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }, 4000);
+</script>
 
 </body>
 </html>
