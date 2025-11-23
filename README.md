@@ -1,2 +1,3 @@
 # Rotamyks
 YKS yolculuğunda rehberin olacak, başarıya giden yolda her adımda yanında yer alacak bir koçluk sistemi.
+RotamYKS, YKS yolculuğunda öğrencilere rehberlik eden, başarıya giden yolda her adımda yanlarında yer alacak kapsamlı bir koçluk sistemi sunar. Sitemizde, öğrencilerin hedeflerine ulaşmalarına yardımcı olacak ücretsiz ders notları ve kaynaklar bulabilirsin. Ayrıca, motivasyonlarını artıracak yazılı motivasyon konuşmalarımızla da sana destek oluyoruz. RotamYKS'ye özel, kişisel koçluk sistemimizle hedeflerine ulaşman için yanındayız. Samimi ve içten bir ortamda başarıya birlikte yürüyeceğiz.
