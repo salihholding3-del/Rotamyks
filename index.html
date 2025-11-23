@@ -3,161 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RotamYKS - YKS Koçluk Sistemi</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>RotamYKS</title>
+
 <style>
-  body { 
-    font-family: 'Roboto', sans-serif; 
-    margin:0; 
-    padding:0; 
-    background: linear-gradient(to bottom, #f0f2f5, #dcdcff);
-  }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom right, #f0f0f3, #d7d7e8);
+        overflow-x: hidden;
+    }
 
-  header {
-    background: linear-gradient(to bottom right, #f0f2f5, #dcdcff); /* soft arka plan */
-    color:white;
-    text-align:center;
-    padding:120px 20px;
-  }
+    /* Neon dekorlar */
+    .blob {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, #8ab6ff, #5c7cff);
+        filter: blur(120px);
+        z-index: -1;
+        opacity: 0.7;
+    }
+    .blob:nth-child(1) { top: -50px; left: -50px; }
+    .blob:nth-child(2) { bottom: -50px; right: -50px; background: radial-gradient(circle, #ff9ecb, #ff5fa2); }
 
-  header h1 {
-    font-size:4em;
-    font-weight:700;
-    background: linear-gradient(90deg, #ff416c, #ff4b2b); /* gradient yazı */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin:0;
-  }
+    /* Header */
+    header {
+        text-align: center;
+        padding: 120px 20px;
+    }
 
-  header p {
-    font-size:1.2em;
-    margin-top:10px;
-    color:#333; /* okunaklı paragraf */
-  }
+    header h1 {
+        font-size: 3.5em;
+        font-weight: 800;
+        background: linear-gradient(90deg, #ff4b2b, #ff416c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+    }
 
-  nav { 
-    background: linear-gradient(90deg, #6a11cb, #2575fc); 
-    display:flex; 
-    justify-content:center; 
-    flex-wrap:wrap; 
-  }
-  nav a { 
-    color:white; 
-    text-decoration:none; 
-    padding:15px 20px; 
-    display:block; 
-    transition:0.3s; 
-  }
-  nav a:hover { 
-    background: linear-gradient(90deg, #ff416c, #ff4b2b); 
-  }
+    header p {
+        font-size: 1.2em;
+        font-weight: 500;
+        color: #333;
+        margin-top: 10px;
+    }
 
-  section { padding:60px 20px; max-width:1000px; margin:auto; }
-  h2 { text-align:center; margin-bottom:40px; }
+    /* Hamburger Menü */
+    #menuBtn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 1000;
+    }
 
-  .card-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-  .card { background:white; padding:20px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); flex:1 1 250px; transition:0.3s; }
-  .card:hover { transform: translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+    /* Sağdan açılan menü */
+    #sideMenu {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100%;
+        background: white;
+        box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+        padding: 30px;
+        transition: 0.3s;
+        z-index: 999;
+    }
 
-  .btn { 
-    background: linear-gradient(90deg, #6a11cb, #2575fc); 
-    color:white; 
-    padding:12px 25px; 
-    text-decoration:none; 
-    border-radius:8px; 
-    display:inline-block; 
-    margin-top:10px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: 0.4s;
-  }
-  .btn:hover { 
-    background: linear-gradient(90deg, #ff416c, #ff4b2b);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-  }
+    #sideMenu a {
+        display: block;
+        margin: 20px 0;
+        font-size: 18px;
+        text-decoration: none;
+        color: black;
+    }
 
-  footer { background:#343a40; color:white; text-align:center; padding:20px; margin-top:40px; }
+    /* Mektup animasyonlu açılır kutu */
+    .letter {
+        width: 120px;
+        margin: 60px auto;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-  .slider { position:relative; max-width:800px; margin:auto; overflow:hidden; border-radius:10px; }
-  .slides { display:flex; transition:0.5s; }
-  .slide { min-width:100%; padding:40px; box-sizing:border-box; background:#fff; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+    .letter:hover {
+        transform: scale(1.07);
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+    }
+
+    .popup-content {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        max-width: 80%;
+    }
+
+    .close-btn {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #ff4b2b;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
 </style>
 </head>
 <body>
 
+<div class="blob"></div>
+<div class="blob"></div>
+
+<!-- Hamburger menü butonu -->
+<div id="menuBtn">☰</div>
+
+<!-- Açılır sağ menü -->
+<div id="sideMenu">
+    <a href="#">Anasayfa</a>
+    <a href="#">Ders Notları</a>
+    <a href="#">Motivasyon</a>
+    <a href="#">Koçluk Sistemi</a>
+</div>
+
 <header>
-  <h1>RotamYKS</h1>
-  <p>YKS yolculuğunda rehberin olacak, başarıya giden yolda yanında!</p>
+    <h1>RotamYKS</h1>
+    <p>YKS yolculuğunda rehberin, koçun ve motivasyon kaynağın.</p>
 </header>
 
-<nav>
-  <a href="#anasayfa">Ana Sayfa</a>
-  <a href="#dersnotlari">Ders Notları</a>
-  <a href="#motivasyon">Motivasyon</a>
-  <a href="#kocluk">Koçluk Sistemi</a>
-  <a href="#iletisim">İletişim</a>
-</nav>
+<!-- Mektup -->
+<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" class="letter" id="letter">
 
-<section id="anasayfa">
-  <h2>Ana Sayfa</h2>
-  <p style="text-align:center; max-width:800px; margin:auto;">RotamYKS, YKS yolculuğunda öğrencilere rehberlik eden, başarıya giden yolda her adımda yanlarında yer alacak kapsamlı bir koçluk sistemi sunar. Ücretsiz ders notları ve motivasyon içerikleri ile senin yanında!</p>
-</section>
-
-<section id="dersnotlari">
-  <h2>Ücretsiz Ders Notları</h2>
-  <div class="card-container">
-    <div class="card">
-      <h3>TYT Matematik</h3>
-      <p>Özet notlar ve örnek sorular. <a href="https://example.com/tyt-matematik.pdf" class="btn">PDF İndir</a></p>
+<!-- Popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h2>RotamYKS'ye Hoş Geldin!</h2>
+        <p>Başarı yolculuğunda artık yalnız değilsin. Beraber ilerleyeceğiz!</p>
+        <button class="close-btn" id="closePopup">Kapat</button>
     </div>
-    <div class="card">
-      <h3>AYT Fizik</h3>
-      <p>Kapsamlı konu özetleri. <a href="https://example.com/ayt-fizik.pdf" class="btn">PDF İndir</a></p>
-    </div>
-    <div class="card">
-      <h3>AYT Edebiyat</h3>
-      <p>Konu özetleri ve örnek sorular. <a href="https://example.com/ayt-edebiyat.pdf" class="btn">PDF İndir</a></p>
-    </div>
-  </div>
-</section>
-
-<section id="motivasyon">
-  <h2>Motivasyon Yazıları</h2>
-  <div class="slider">
-    <div class="slides">
-      <div class="slide">"Başarı, her gün küçük adımlar atmaktır. RotamYKS yanındadır!"</div>
-      <div class="slide">"Hayallerine giden yol sabır ve azimle döşenmiştir. Biz bu yolda seninle birlikteyiz."</div>
-      <div class="slide">"Her yeni gün bir fırsattır. RotamYKS ile her adımda güçlüsün!"</div>
-    </div>
-  </div>
-</section>
-
-<section id="kocluk">
-  <h2>Koçluk Sistemi</h2>
-  <p>RotamYKS’ye özel, kişisel koçluk sistemimizle hedeflerine ulaşman için yanındayız. Samimi ve içten bir ortamda başarıya birlikte yürüyeceğiz.</p>
-  <a href="#iletisim" class="btn">Koçluk İçin İletişime Geç</a>
-</section>
-
-<section id="iletisim">
-  <h2>İletişim</h2>
-  <p>Bize ulaşmak için e-posta gönder:</p>
-  <a href="mailto:ornekemail@rotamyks.com" class="btn">Mail Gönder</a>
-</section>
-
-<footer>
-  <p>© 2025 RotamYKS. Tüm hakları saklıdır.</p>
-</footer>
+</div>
 
 <script>
-  // Slider otomatik geçiş
-  let slides = document.querySelector('.slides');
-  let totalSlides = document.querySelectorAll('.slide').length;
-  let index = 0;
-  setInterval(() => {
-    index++;
-    if(index >= totalSlides) index = 0;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-  }, 4000);
+    // Menü açma kapama
+    document.getElementById("menuBtn").onclick = () => {
+        let menu = document.getElementById("sideMenu");
+        menu.style.right = menu.style.right === "0px" ? "-250px" : "0px";
+    };
+
+    // Mektup popup’ı
+    const letter = document.getElementById("letter");
+    const popup = document.getElementById("popup");
+    const closeBtn = document.getElementById("closePopup");
+
+    letter.onclick = () => {
+        popup.style.display = "flex";
+    };
+
+    closeBtn.onclick = () => {
+        popup.style.display = "none";
+    };
 </script>
 
 </body>
