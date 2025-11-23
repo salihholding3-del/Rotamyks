@@ -14,7 +14,8 @@
   }
 
   header {
-    background: linear-gradient(135deg, #8e2de2, #ff6a00);
+    /* Fotoğraf + gradient */
+    background: linear-gradient(135deg, #8e2de2, #ff6a00), url('https://github.com/KULLANICIADIN/RotamYKS/blob/main/1763918008236.jpg?raw=true') no-repeat center center/cover;
     color:white; 
     text-align:center; 
     padding:120px 20px;
@@ -49,14 +50,19 @@
   .btn { 
     background: linear-gradient(90deg, #1e3c72, #2a5298); 
     color:white; 
-    padding:10px 20px; 
+    padding:12px 25px; 
     text-decoration:none; 
-    border-radius:5px; 
+    border-radius:8px; 
     display:inline-block; 
     margin-top:10px; 
-    transition:0.3s; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.4s;
   }
-  .btn:hover { background: linear-gradient(90deg, #6a11cb, #2575fc); }
+  .btn:hover { 
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
 
   footer { background:#343a40; color:white; text-align:center; padding:20px; margin-top:40px; }
 
