@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotam YKS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ÜST NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            🎓 Rotam YKS
+        </div>
+        <nav>
+            <a href="#notlar">Ders Notları</a>
+            <a href="#konular">Konular</a>
+            <a href="#coach">Koçluk Sistemi</a>
+        </nav>
+    </header>
+
+    <!-- HERO ALANI -->
+    <section class="hero">
+        <h1>Bu Yolun Sonu Başarı! 🚀</h1>
+        <p>YKS yolculuğunda tüm öğrencileri tek bir çatı altında topluyoruz.</p>
+        <button class="hero-btn">Başla</button>
+    </section>
+
+    <!-- MOTİVASYON SÖZLERİ -->
+    <section class="motivasyon">
+        <h2>Motivasyon Sözleri</h2>
+        <div class="moti-box">
+            "Başarı, devam eden küçük adımların toplamıdır."
+        </div>
+        <div class="moti-box">
+            "Her gün bir adım daha..."
+        </div>
+        <div class="moti-box">
+            "Bugün başlarsan yarın daha iyi olursun."
+        </div>
+    </section>
+
+    <!-- DERS KONU TAKİP -->
+    <section id="konular" class="konular">
+        <h2>TYT – Konu Takip</h2>
+
+        <div class="konu-grid">
+            <button class="konu-btn">TYT Türkçe</button>
+            <button class="konu-btn">TYT Matematik</button>
+            <button class="konu-btn">TYT Fen</button>
+            <button class="konu-btn">TYT Sosyal</button>
+        </div>
+    </section>
+
+    <!-- KOÇLUK SİSTEMİ -->
+    <section id="coach" class="coach">
+        <h2>Koçluk Sistemi</h2>
+        <p>Renkli koçluk sistemi yakında aktif olacak.</p>
+        <div class="coach-box">📘 Haftalık Plan</div>
+        <div class="coach-box">📙 Günlük Görev</div>
+        <div class="coach-box">📗 Performans Takibi</div>
+    </section>
+
+</body>
+</html>
